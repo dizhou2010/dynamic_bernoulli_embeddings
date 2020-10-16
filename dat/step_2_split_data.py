@@ -1,10 +1,12 @@
+# -*- coding: utf-8 -*-
+
 import glob
 import numpy as np
 import pickle
 import pandas as pd
 
 # Change this to the name of the folder where your dataset is
-dataset_name = 'arxiv_ML'
+dataset_name = 'd_emb_seg'
 
 files = glob.glob(dataset_name+'/train/*.npy')
 

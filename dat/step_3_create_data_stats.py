@@ -1,21 +1,24 @@
+# -*- coding: utf-8 -*-
+
 import glob
 import os
 import numpy as np
 import pickle
+import pandas as pd
 
 
 # Change this to the name of the folder where your dataset is
-dataset_name = 'arxiv_ML'
+dataset_name = 'd_emb_seg'
 
 # Change this to a list of the time slices 
-time_slices = range(7,16)
+time_slices = pd.date_range('2014-12-01','2020-08-31', freq='MS').strftime("%Y%m").tolist()
 
 #Change this to the number of characters in the file names that should be matched to the timeslice prefix.
 # i.e. if you use time_slices = [91, 92, 98, ...] 
 #         use prefix_length = 2
 # if you use time_slices = [1998, 1999, 2000, 2001]
 #         use prefix_length = 4
-prefix_length = 2
+prefix_length = 6
 
 # Change this to a list of query words you would like the algorithm to print descriptive statistics of (i.e. a trajectory of the learned dynamic embeddings)
 query_words = ['deep', 'inference', 'sparse', 'neuron', 'variational']
