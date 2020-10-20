@@ -46,4 +46,4 @@ count_words('train')
 count_words('test')
 count_words('valid')
 
-pickle.dump(dat_stats, open(dataset_name + '/dat_stats.pkl', "a+" ) )
+pickle.dump(dat_stats, open(dataset_name + '/dat_stats.pkl', "ab" ) )
