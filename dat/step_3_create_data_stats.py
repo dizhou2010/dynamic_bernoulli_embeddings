@@ -21,7 +21,7 @@ time_slices = pd.date_range('2014-12-01','2020-08-31', freq='MS').strftime("%Y%m
 prefix_length = 6
 
 # Change this to a list of query words you would like the algorithm to print descriptive statistics of (i.e. a trajectory of the learned dynamic embeddings)
-query_words = ['deep', 'inference', 'sparse', 'neuron', 'variational']
+query_words = ['美国', '中国', '自由', '民主', '特朗普']
 
 
 # No need to modify any code below
@@ -46,4 +46,4 @@ count_words('train')
 count_words('test')
 count_words('valid')
 
-pickle.dump(dat_stats, open(dataset_name + '/dat_stats.pkl', "ab" ) )
+pickle.dump(dat_stats, open(dataset_name + '/dat_stats.pkl', "ab+" ) )

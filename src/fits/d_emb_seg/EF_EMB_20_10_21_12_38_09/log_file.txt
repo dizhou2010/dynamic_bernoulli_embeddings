@@ -1,0 +1,1 @@
+Namespace(K=100, cs=4, dynamic=False, fpath='/Users/dizhou/google_drive_nyu/r_and_git/zh_trump_resonance/dynamic_bernoulli_embeddings/dat/d_emb_seg', init='', n_epochs=10000, n_iter=1, ns=10, sig=1.0)

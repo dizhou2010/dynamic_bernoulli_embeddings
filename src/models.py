@@ -66,7 +66,7 @@ class emb_model(object):
 
     def plot_params(self, plot_only=500):
         with self.sess.as_default():
-	    tsne = TSNE(perplexity=30, n_components=2, init='pca', n_iter=5000)
+            tsne = TSNE(perplexity=30, n_components=2, init='pca', n_iter=5000)
             low_dim_embs_alpha2 = tsne.fit_transform(self.alpha.eval()[:plot_only])
             plot_with_labels(low_dim_embs_alpha2[:plot_only], self.labels[:plot_only], self.logdir + '/alpha.eps')
 
@@ -82,7 +82,7 @@ class emb_model(object):
 
         for x in words:
             f_name = os.path.join(self.logdir, '%s_queries.txt' % (x))
-            with open(f_name, "w+") as text_file:
+            with open(f_name, "wb") as text_file:
                 vr, ir = self.sess.run([val_rho, idx_rho], {query_word: self.dictionary[x]})
                 text_file.write("\n\n=====================================\n%s\n=====================================" % (x))
                 for ii in range(num):
@@ -211,7 +211,7 @@ class bern_emb_model(emb_model):
             with self.sess.as_default():
               dat = {'rho':  self.rho.eval(),
                      'alpha':  self.alpha.eval()}
-            pickle.dump( dat, open( fname, "a+" ) )
+            pickle.dump( dat, open( fname, "ab+" ) )
 
 
 
@@ -288,7 +288,7 @@ class dynamic_bern_emb_model(emb_model):
                 dat = {'alpha':  self.alpha.eval()}
                 for t in range(self.T):
                     dat['rho_'+str(t)] = self.rho_t[t].eval()
-            pickle.dump( dat, open( fname, "a+" ) )
+            pickle.dump( dat, open( fname, "ab+" ) )
 
     def eval_log_like(self, feed_dict):
         log_p = np.zeros((0,1))
@@ -300,7 +300,7 @@ class dynamic_bern_emb_model(emb_model):
 
     def plot_params(self, plot_only=500):
         with self.sess.as_default():
-	    tsne = TSNE(perplexity=30, n_components=2, init='pca', n_iter=5000)
+            tsne = TSNE(perplexity=30, n_components=2, init='pca', n_iter=5000)
             low_dim_embs_alpha = tsne.fit_transform(self.alpha.eval()[:plot_only])
             plot_with_labels(low_dim_embs_alpha[:plot_only], self.labels[:plot_only], self.logdir + '/alpha.eps')
             for t in [0, int(self.T/2), self.T-1]:
