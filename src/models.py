@@ -82,7 +82,7 @@ class emb_model(object):
 
         for x in words:
             f_name = os.path.join(self.logdir, '%s_queries.txt' % (x))
-            with open(f_name, "wb") as text_file:
+            with open(f_name, "w+") as text_file:
                 vr, ir = self.sess.run([val_rho, idx_rho], {query_word: self.dictionary[x]})
                 text_file.write("\n\n=====================================\n%s\n=====================================" % (x))
                 for ii in range(num):
@@ -156,10 +156,10 @@ class bern_emb_model(emb_model):
 
             # Index Masks
             with tf.name_scope('context_mask'):
-                self.p_mask = tf.cast(tf.range(self.cs/2, self.n_minibatch + self.cs/2),tf.int32)
-                rows = tf.cast(tf.tile(tf.expand_dims(tf.range(0, self.cs/2),[0]), [self.n_minibatch, 1]),tf.int32)
-                columns = tf.cast(tf.tile(tf.expand_dims(tf.range(0, self.n_minibatch), [1]), [1, self.cs/2]),tf.int32)
-                self.ctx_mask = tf.concat([rows+columns, rows+columns +self.cs/2+1], 1)
+                self.p_mask = tf.cast(tf.range(int(self.cs/2), self.n_minibatch + int(self.cs/2)),tf.int32)
+                rows = tf.cast(tf.tile(tf.expand_dims(tf.range(0, int(self.cs/2)),[0]), [self.n_minibatch, 1]),tf.int32)
+                columns = tf.cast(tf.tile(tf.expand_dims(tf.range(0, self.n_minibatch), [1]), [1, int(self.cs/2)]),tf.int32)
+                self.ctx_mask = tf.concat([rows+columns, rows+columns + int(self.cs/2)+1], 1)
 
             with tf.name_scope('embeddings'):
                 self.rho = tf.Variable(self.rho_init, name='rho')
@@ -246,11 +246,11 @@ class dynamic_bern_emb_model(emb_model):
                 self.ll_neg = 0.0
                 for t in range(self.T):
                     # Index Masks
-                    p_mask = tf.range(self.cs/2,self.n_minibatch[t] + self.cs/2)
-                    rows = tf.tile(tf.expand_dims(tf.range(0, self.cs/2),[0]), [self.n_minibatch[t], 1])
-                    columns = tf.tile(tf.expand_dims(tf.range(0, self.n_minibatch[t]), [1]), [1, self.cs/2])
+                    p_mask = tf.range(int(self.cs/2),self.n_minibatch[t] + int(self.cs/2))
+                    rows = tf.tile(tf.expand_dims(tf.range(0, int(self.cs/2)),[0]), [self.n_minibatch[t], 1])
+                    columns = tf.tile(tf.expand_dims(tf.range(0, self.n_minibatch[t]), [1]), [1, int(self.cs/2)])
                     
-                    ctx_mask = tf.concat([rows+columns, rows+columns +self.cs/2+1], 1)
+                    ctx_mask = tf.concat([rows+columns, rows+columns +int(self.cs/2)+1], 1)
 
                     # Data Placeholder
                     self.placeholders[t] = tf.placeholder(tf.int32, shape = (self.n_minibatch[t] + self.cs))
@@ -333,7 +333,7 @@ class dynamic_bern_emb_model(emb_model):
         for x in words:
             f_name = os.path.join(self.logdir, '%s_queries.txt' % (x))
             with open(f_name, "w+") as text_file:
-                for t_idx in xrange(self.T):
+                for t_idx in range(self.T):
                     with self.sess.as_default():
                         rho_t = self.rho_t[t_idx].eval()
                     vr, ir = self.sess.run([val_rho, idx_rho], {query_word: self.dictionary[x], query_rho_t: rho_t})

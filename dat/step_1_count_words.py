@@ -9,7 +9,7 @@ import re
 # Change this to the name of the folder where your dataset is
 dataset_name = 'd_emb_seg'
 # Change this to the number of words you want in the vocabulary
-V = 30000
+V = 5000
 
 files = glob.glob(dataset_name +'/raw/*.txt')
 dictionary = {}
@@ -19,7 +19,7 @@ N = len(files)
 for f_number, fn in enumerate(files):
     #print(str(f_number)+" out of "+str(N))
     with open(fn, 'r') as myfile:
-        words = myfile.read().replace('\n','    ').split(' ')
+        words = myfile.read().replace('\n', ' ').split(' ')
     data = np.zeros(len(words))
     for idx, word in enumerate(words):
         if word not in dictionary:
