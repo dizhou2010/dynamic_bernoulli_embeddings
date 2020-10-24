@@ -1,0 +1,127 @@
+
+
+=====================================
+variational, t = 0
+=====================================
+leibler              -0.0374
+posterior            -0.0380
+versa                -0.0389
+reward               -0.0420
+eq                   -0.0425
+kullback             -0.0433
+divergence           -0.0434
+gradient             -0.0435
+log                  -0.0444
+bound                -0.0446
+
+=====================================
+variational, t = 1
+=====================================
+leibler              -0.0337
+posterior            -0.0351
+eq                   -0.0369
+bound                -0.0383
+divergence           -0.0389
+versa                -0.0392
+log                  -0.0394
+kullback             -0.0397
+gradient             -0.0402
+substituting         -0.0415
+
+=====================================
+variational, t = 2
+=====================================
+leibler              -0.0373
+posterior            -0.0386
+versa                -0.0408
+reward               -0.0419
+eq                   -0.0421
+bound                -0.0422
+divergence           -0.0428
+kullback             -0.0435
+log                  -0.0441
+gradient             -0.0442
+
+=====================================
+variational, t = 3
+=====================================
+leibler              -0.0361
+bound                -0.0378
+posterior            -0.0380
+reward               -0.0389
+versa                -0.0396
+eq                   -0.0404
+divergence           -0.0409
+regret               -0.0415
+kullback             -0.0417
+gradient             -0.0418
+
+=====================================
+variational, t = 4
+=====================================
+leibler              -0.0331
+eq                   -0.0352
+posterior            -0.0354
+bound                -0.0354
+frobenius            -0.0361
+divergence           -0.0374
+orthonormal          -0.0379
+gradient             -0.0379
+dual                 -0.0381
+proposition          -0.0382
+
+=====================================
+variational, t = 5
+=====================================
+leibler              -0.0340
+reward               -0.0347
+posterior            -0.0363
+versa                -0.0368
+regret               -0.0382
+bound                -0.0387
+divergence           -0.0394
+kullback             -0.0396
+gradient             -0.0419
+dual                 -0.0421
+
+=====================================
+variational, t = 6
+=====================================
+leibler              -0.0353
+versa                -0.0365
+reward               -0.0387
+posterior            -0.0397
+proposition          -0.0409
+kullback             -0.0410
+divergence           -0.0412
+corollary            -0.0415
+bound                -0.0415
+remark               -0.0423
+
+=====================================
+variational, t = 7
+=====================================
+leibler              -0.0363
+reward               -0.0373
+versa                -0.0383
+bound                -0.0385
+posterior            -0.0388
+eq                   -0.0400
+regret               -0.0407
+kullback             -0.0415
+divergence           -0.0417
+gradient             -0.0429
+
+=====================================
+variational, t = 8
+=====================================
+leibler              -0.0341
+bound                -0.0346
+reward               -0.0349
+posterior            -0.0350
+versa                -0.0356
+regret               -0.0368
+kullback             -0.0388
+divergence           -0.0388
+eq                   -0.0389
+log                  -0.0399

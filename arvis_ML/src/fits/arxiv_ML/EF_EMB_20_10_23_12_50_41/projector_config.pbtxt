@@ -1,0 +1,40 @@
+embeddings {
+  tensor_name: "model/embeddings/alpha"
+  metadata_path: "../vocab.tsv"
+}
+embeddings {
+  tensor_name: "model/embeddings/rho_0"
+  metadata_path: "../vocab.tsv"
+}
+embeddings {
+  tensor_name: "model/embeddings/rho_1"
+  metadata_path: "../vocab.tsv"
+}
+embeddings {
+  tensor_name: "model/embeddings/rho_2"
+  metadata_path: "../vocab.tsv"
+}
+embeddings {
+  tensor_name: "model/embeddings/rho_3"
+  metadata_path: "../vocab.tsv"
+}
+embeddings {
+  tensor_name: "model/embeddings/rho_4"
+  metadata_path: "../vocab.tsv"
+}
+embeddings {
+  tensor_name: "model/embeddings/rho_5"
+  metadata_path: "../vocab.tsv"
+}
+embeddings {
+  tensor_name: "model/embeddings/rho_6"
+  metadata_path: "../vocab.tsv"
+}
+embeddings {
+  tensor_name: "model/embeddings/rho_7"
+  metadata_path: "../vocab.tsv"
+}
+embeddings {
+  tensor_name: "model/embeddings/rho_8"
+  metadata_path: "../vocab.tsv"
+}

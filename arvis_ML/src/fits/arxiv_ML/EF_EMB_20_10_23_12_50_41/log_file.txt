@@ -1,0 +1,1 @@
+Namespace(K=100, cs=4, dynamic=True, fpath='../dat/arxiv_ML/', init='', n_epochs=10000, n_iter=1, ns=10, sig=1.0)
