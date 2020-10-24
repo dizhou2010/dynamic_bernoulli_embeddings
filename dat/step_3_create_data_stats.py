@@ -36,11 +36,14 @@ T = len(dat_stats['T_bins'])
 def count_words(split):
     dat_stats[split] = np.zeros(T)
     files = glob.glob(dataset_name + '/'+ split + '/*.npy')
+    dat_file = []
     for t, i in enumerate(dat_stats['T_bins']):
-        dat_files = [f for f in files if int(os.path.basename(f)[:dat_stats['prefix']]) == i]
-        for fname in dat_files:
-            dat = np.load(fname)
-            dat_stats[split][t] += len(dat)
+        for f in files:
+            if os.path.basename(f)[:dat_stats['prefix']] == i:
+                dat_file.append(f)
+    for i in range(len(dat_stats['T_bins'])):
+        dat = np.load(dat_files[i])
+        dat_stats[split][i] += len(dat)
 
 count_words('train')
 count_words('test')

@@ -50,7 +50,7 @@ class bern_emb_data():
         if self.dynamic:
             self.batch = [0]*self.T
             for t, i in enumerate(dat_stats['T_bins']):
-                self.batch[t] = self.batch_generator(self.n_train[t] + self.cs, [f for f in train_files if int(os.path.basename(f)[:dat_stats['prefix']]) == i])
+                self.batch[t] = self.batch_generator(self.n_train[t] + self.cs, [f for f in train_files if os.path.basename(f)[:dat_stats['prefix']] == i])
         else:
            self.batch = self.batch_generator(self.n_train + self.cs, train_files)
 
@@ -59,7 +59,7 @@ class bern_emb_data():
         if self.dynamic:
             self.valid_batch = [0]*self.T
             for t, i in enumerate(dat_stats['T_bins']):
-                self.valid_batch[t] = self.batch_generator(self.n_valid[t] + self.cs, [f for f in valid_files if int(os.path.basename(f)[:dat_stats['prefix']]) == i])
+                self.valid_batch[t] = self.batch_generator(self.n_valid[t] + self.cs, [f for f in valid_files if os.path.basename(f)[:dat_stats['prefix']] == i])
         else:
            self.valid_batch = self.batch_generator(self.n_valid + self.cs, valid_files)
 
@@ -68,7 +68,7 @@ class bern_emb_data():
         if self.dynamic:
             self.test_batch = [0]*self.T
             for t, i in enumerate(dat_stats['T_bins']):
-                self.test_batch[t] = self.batch_generator(self.n_test[t] + self.cs, [f for f in test_files if int(os.path.basename(f)[:dat_stats['prefix']]) == i])
+                self.test_batch[t] = self.batch_generator(self.n_test[t] + self.cs, [f for f in test_files if os.path.basename(f)[:dat_stats['prefix']] == i])
         else:
            self.test_batch = self.batch_generator(self.n_test + self.cs, test_files)
 

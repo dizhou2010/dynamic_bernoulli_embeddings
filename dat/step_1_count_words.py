@@ -46,14 +46,15 @@ unig.columns = ['new_idx', 'word', 'old_idx', 'cnt']
 old_idx = unig.old_idx.values
 
 files = glob.glob(dataset_name +'/raw/*.npy')
-for fname in files:
-    print(str(f_number)+" out of "+str(N))
-    dat = np.load(fname)
+for f_number, fname in enumerate(files):
+    print(str(f_number)+" out of "+ str(N))
+    dat = np.load(fname) #dat is an (old) index array
     new_dat = np.zeros_like(dat) + 2*V
     
+    # replace old index with new index
     for ni, oi in enumerate(old_idx[:V]):
         new_dat[dat == oi] = ni
-    new_dat = new_dat[new_dat < V].astype('int32')
+    new_dat = new_dat[new_dat < V].astype('int32') # remove words have a new index larger than capped number
     new_fname = fname.replace('raw/','train/')
     np.save(new_fname, new_dat)
 
